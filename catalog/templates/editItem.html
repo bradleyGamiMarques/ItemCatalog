@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/static/editItem.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <title>Edit Item</title>
+</head>
+
+<body>
+    <div class="header">
+        <h1 class="title">Catalog App</h1>
+        <button id="logoutbutton" class="logoutButton">Logout</button>
+        <script src="/static/logoutscript.js"></script>
+    </div>
+    <div class="bodyContentContainer">
+        <div class="leftColumn">
+            <h2>Edit Item</h2>
+            <form class="editForm" action="#" method="post">
+                <label>Item Name</label>
+
+                <input placeholder={{item}} type="text" class="formTitleInput" name="name">
+
+                <label>Description</label>
+
+                <textarea placeholder="Edit the item description."name="description"></textarea>
+
+                <label>Category</label>
+
+                <select class="categoryDropDown" name="category">
+                    {% for c in categories %}
+                    <option value={{c.id}}>{{c.category_name}}</option>
+                    {% endfor %}
+                </select>
+
+                <input type="submit" class="formSubmitInput">
+
+            </form>
+        </div>
+</body>
+
+</html>

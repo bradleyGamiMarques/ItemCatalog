@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <title>Catalog App</title>
+</head>
+
+<body>
+    <div class="header">
+        <h1 class="title">Catalog App</h1>
+        <button id="login" class="loginButton">Login</button>
+        <script src="/static/loginscript.js"></script>
+    </div>
+    <div class="bodyContentContainer">
+        <div class="leftColumn">
+            <h2>Categories</h2>
+            <div>
+                <ul>
+                    {% for i in categories %}
+                    <li><a href="{{url_for('get_items', category = i.category_name)}}">{{i.category_name}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="verticalLine"></div>
+        <div class="rightColumn">
+            <h2> {{ selected_category.category_name }} Items</h2>
+            <div>
+                <ul>
+                    {% for i in selected_category_items %}
+                    <li><a href="{{url_for('get_items_description', category = selected_category.category_name, item = i.item_name)}}">{{i.item_name}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

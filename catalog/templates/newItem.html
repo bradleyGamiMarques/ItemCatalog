@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/static/newItem.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <title>New Item</title>
+</head>
+
+<body>
+    <div class="header">
+        <h1 class="title">Catalog App</h1>
+        <button class="loginButton">Logout</button>
+    </div>
+    <div class="bodyContentContainer">
+        <div class="leftColumn">
+            <h2>New Item</h2>
+            <form class="newItemForm" action="#" method="post">
+                <label>Item Name</label>
+                
+                <input type="text" class="formTitleInput" name="name">
+                
+                <label>Description</label>
+                
+                <textarea placeholder="Edit the item description." name="description"></textarea>
+                
+                <label>Category</label>
+                
+                <select class="categoryDropDown" name = "categories">
+                    {% for c in categories %}
+                    <option value={{c.id}}>{{c.category_name}}</option>
+                    {% endfor %}
+                </select>
+               
+                <input type="submit" class="formSubmitInput">
+                
+            </form>
+        </div>
+</body>
+
+</html>
